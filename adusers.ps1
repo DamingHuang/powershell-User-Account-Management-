@@ -1,3 +1,11 @@
+# ----------------------------------------
+# PowerShell AD User Creation Template
+# ----------------------------------------
+# Instructions:
+# 1. Replace "your-path" with the full path to your CSV file.
+# 2. Replace domain info with your AD domain (e.g., DC=domain,DC=com).
+# 3. Customize OU path if needed
+
 $scriptErrors = @()
 
 Import-Csv -Path "your-path" | ForEach-Object {
@@ -29,4 +37,5 @@ if ($scriptErrors.Count -gt 0) {
     Write-Host "All users from the CSV were processed successfully." -ForegroundColor Green
     Remove-Item  "your path"
 }
+
 
