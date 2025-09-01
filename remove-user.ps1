@@ -1,7 +1,13 @@
+# ----------------------------------------
+# PowerShell AD User Deletion Template
+# ----------------------------------------
+# Instructions:
+# 1. Replace "your-path\your-csv-file.csv" with the path to your CSV file.
+# 2. CSV should include a "Username" column with AD usernames to remove.
 
 $scriptErrors = @()
 
-Import-Csv -Path "\\WIN-PO0QFHEI7V0\CleanDesktop\Administrator\Desktop\users\rm3.csv" | ForEach-Object {
+Import-Csv -Path "your-path\rm3.csv" | ForEach-Object {
 
 
 
@@ -23,5 +29,6 @@ Remove-ADUser $_.Username
 } else {
     # If there are no errors, let the user know all operations were successful.
     Write-Host "All users from the CSV were processed successfully." -ForegroundColor Green
-Remove-Item  \\WIN-PO0QFHEI7V0\CleanDesktop\Administrator\Desktop\users\rm3.csv
+Remove-Item  your-path\your-csv-file.csv
 }
+
